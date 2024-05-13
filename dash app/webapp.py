@@ -1,3 +1,5 @@
+print('Please hold, this could take a moment...')
+
 #dash
 from dash import Dash, dcc, html
 
@@ -12,25 +14,30 @@ score_hist = {'id':'score_hist', 'figure':plots.get_histogram(lifetime_score_dat
 score_fake_violin = {'id':'score_fake_violin', 'figure':plots.get_fake_violin(lifetime_score_data)}
 score_box = {'id':'score_box', 'figure':plots.get_box(lifetime_score_data)}
 
+'''Content'''
+import content
+
 '''Layout'''
 def apply_main_layout(app: Dash) -> None:
+    elements = [html.Plaintext(content.get_section(1)),
+                dcc.Graph(**score_para_strip),
+                html.Plaintext(content.get_section(2)),
+                dcc.Graph(**score_box),
+                dcc.Graph(**score_fake_violin),
+                dcc.Graph(**score_hist),
+                html.Plaintext(content.get_section(3)),
+                html.Plaintext(content.get_section(4))]
+    
     layout = html.Div(id='main-div', 
-                      children = [html.H1('Welcome to my website!'),
-                                  html.Hr(),
-                                  html.H2('Figures of annual competition performance'),
-                                  dcc.Graph(**score_para_strip),
-                                  html.H2('Figures of lifetime competition performance'),
-                                  dcc.Graph(**score_hist),
-                                  dcc.Graph(**score_fake_violin),
-                                  dcc.Graph(**score_box)])
+                      children = elements)
     app.layout = layout
 
 '''App'''
 def run_app():
-    my_app = Dash(__name__)
-    my_app.title = 'iGEM Data Analysis'
-    apply_main_layout(my_app)
-    my_app.run()
+    app = Dash(__name__)
+    app.title = 'iGEM Data Analysis'
+    apply_main_layout(app)
+    app.run()
 
 if __name__ == '__main__':
     run_app()

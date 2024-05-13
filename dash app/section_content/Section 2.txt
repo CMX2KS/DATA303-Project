@@ -1,0 +1,3 @@
+﻿We can also look at competition success overall across all competition years. These plots show lifetime team score accumulation, first as a box plot, which shows an 
+overview of regional performance, next as a parallel strip plot, which shows all teams rather than just especially high performing ones, then as a histogram, which 
+shows the distribution of lifetime team scores by region.

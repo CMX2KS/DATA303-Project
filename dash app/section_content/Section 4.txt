@@ -1,0 +1,40 @@
+﻿For the most part, however, it appears that no track is very strongly correlated with score.
+
+
+
+
+Supertrack		Pearson-r correlation coefficient with project score
+Entrepreneurship
+				-0.027516
+Medicine
+				-0.021729
+Art, Design & Cosmetics
+				-0.014166
+Hardware
+				-0.012540
+Manufacturing
+				-0.004744
+High School
+				0.000000
+Food, Agriculture & Energy
+				0.001613
+Software, Measurement, & Modeling
+				0.003846
+Environment
+				0.004591
+Applications Research
+				0.007005
+Other
+				0.008956
+Open/Community Research
+				0.009603
+Basic Research
+				0.013498
+	
+
+Although notably, though Medicine is negatively correlated with project score in this period, a Medicine project won a single Grand Prize in this period, whereas 
+categories with stronger correlations with score, like Open/Community Research, has never won a Grand Prize in any competition year.
+
+
+We can visualize project success in this period by track using a similar strip plot as in the previous section, but this time re-colored by project track that year. 
+You can view track performance individually by clicking on the corresponding regions in the legend on the right hand side of the plot.

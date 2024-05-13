@@ -1,0 +1,18 @@
+﻿As we can see in these plots as well, Europe is the highest performing region overall, with North America and Asia not far behind. It is likely part of the reason we 
+see such dramatic differences in lifetime score accumulation between regions is that African and Latin American teams are much more likely to be "one-offs" - teams that 
+will form to compete for one year only and never again. There are many possibilities for why this is more common amongst Latin American or African teams, one which seems 
+likely to me is that institutions in these regions tend to have fewer overall resources to devote to discretionary research like iGEM, so iGEM teams from these regions 
+are more likely to get axed between competition cycles. This hinders lifetime score accumulation by these teams because they simply compete less often, but also limits 
+the scope of their projects, and limits experience accumulation by their advisors and participants.
+Reasons for regional differences between wealthier regions like Europe, Asia, and North America are less clear, but one common refrain I have heard from a number of 
+iGEM advisors is that the field of Synthetic Biology is perceived as less prestigious than in Europe, so it,s harder to attract talent and resources to North American 
+and Asian iGEM teams than it is in Europe.
+
+
+Of course, without additional data and analysis this is all just speculation and hearsay, the only things we can firmly conclude from this part of the analysis is that 
+Europe has seen the most success in iGEM in this period, followed closely by North America and Asia, then by Latin America and Africa.
+
+
+Which subcategories of research tend to be most successful at the Jamboree?
+This plot visualizes the growth and evolution of the research being done by iGEM teams over time. Though we have seen significant growth in some categories, namely High 
+School, some tracks tend to remain pretty consistently popular, like Environment, Basic Research, and Medicine.

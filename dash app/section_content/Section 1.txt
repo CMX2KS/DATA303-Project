@@ -1,0 +1,113 @@
+﻿Hello! This webpage is for showing off my analysis of iGEM team competition data which I did for my final project in DATA 303: Data Visualization at the College of 
+William and Mary in May of 2024. I hope you enjoy and/or find my findings useful.
+
+
+Background
+The International Genetically Engineered Machine (iGEM) competition is the world’s premier synthetic biology competition. Teams at the graduate, undergraduate, 
+and high school levels engineer living things to solve real world problems; they present their research and are judged each year at an event called the Jamboree. 
+iGEM is around twenty years old, and over the years the competition, its contestant institutions, and the field of synthetic biology itself has evolved. My goal 
+for this project was to compile a report which summarized my analysis in a useful and visually appealing way.
+
+
+Some questions I aimed to answer with this report were:
+1. Which teams and regions have seen the most success at the Jamboree?
+2. Which subcategories of research tend to be most successful at the Jamboree?
+3. Are there any other interesting trends in the teams competing and/or the research presented at the Jamboree over the years?
+
+
+Methodology
+Data Acquisition
+The data used to make this report was sourced primarily from iGEM itself. I started with a spreadsheet of team records available at iGEM’s 2020 jamboree page. 
+Then I merged it with more up to date team data found here. Then I filled in the remaining data by looking at iGEM competition records for more recent years, 
+mostly manually but with some help from python scripts I wrote.
+
+
+The final dataset includes 4737 points of data tracking 15 variables over a period of 20 years. Each point of data represents one team’s submission to the competition 
+for that year. Most of these variables are text or categorical, they include: 
+
+* Year: the competition year of the data point
+* Team Name: the name of the team, spanning 2004 to 2023
+* Wiki: the url of the project wiki
+* Region: the continent of the team’s home institution
+* Location: the country of the team’s home institution
+* Institution: the name of the team’s home institution
+* Section: whether the team is undergrad, overgrad, or high-school
+* Application: the status of the team’s application, whether or not they were disqualified
+* Project Title: the title of the team’s project
+* Track: the type of research the project was
+* Abstract: the abstract of the project (about a paragraph of text for each)
+* Parts: the url of a database which stores a record of genetic parts submitted as part of the project
+* Medal: what medal (gold, silver, bronze, or none) the team one at the Jamboree
+* Nominations: what awards the team was nominated for at the Jamboree
+* Awards: what awards the team won at the Jamboree
+
+Scoring
+In order to generate a quantitative metric of team success during a competition cycle I scored the possible awards each team could have won as follows:
+
+Awards:
+A Grand Prize win is worth 10 points.
+A regional Grand Prize win or a Grand Prize runner up is worth 5 points.
+A best project in a track/village is worth 5 points.
+All other “best ___ project” awards are worth 2 points.
+All non-medal awards which don’t fit into the above categories are worth 1 point.
+
+
+Medals:
+A gold medal is worth 1 point.
+A silver medal is worth 0.5 points.
+A bronze medal is worth 0.25 points.
+
+
+Though this scoring method is somewhat arbitrary, it loosely corresponds to how I and other iGEMers I consulted subjectively rate the relative prestige of each award
+ type, while preserving tractability so I could evaluate all the data readily. I did also manually confirm that this scoring system results in the Grand Prize winner 
+ and runners up for each year being ranked at the top and in the appropriate order for their respective competition year.
+
+
+In cases where I had to compare results from multiple years I used scikit-learn’s minmax scale method to scale scores within each year to represent the percentage of 
+the highest score a team won that year.
+Track/Village Grouping
+iGEM asks competing teams to sort themselves into tracks, also known as villages, depending on their research subject for judging and presentation purposes. Though 
+throughout the years the number and types of tracks has shifted, there are some common themes, such as there most always being at least one environment-related track 
+available to choose from. In order to keep my analysis consistent I grouped the many tracks which have occurred throughout the years into “supertracks”, which preserve 
+the broad character of their composing tracks. They are as follows:
+
+
+1. Basic Research
+2. Environment
+3. Manufacturing
+4. Applications Research
+5. Medicine
+6. Food, Agriculture, & Energy
+7. Software, Measurement, & Modeling
+8. Entrepreneurship
+9. Art, Design, & Cosmetics
+10. Hardware
+11. Open/Community Research
+12. Other
+
+
+…with “Other” including non-specific projects as well as very obscure tracks with only one or two entries in the whole competition (e.g. policy).
+Regions
+iGEM defines their competition regions, which I also used for my analysis, as follows:
+
+
+1. Europe
+2. North America, which to the best of my knowledge only includes the US (excluding Puerto Rico) and Canada
+3. Latin America, which includes all of South and Central America, as well as the Caribbean, Mexico, and Puerto Rico. 
+4. Asia, which is by far the largest of the regions, spanning from the Middle East, to East Asia, and all of Oceania.
+5. Africa
+Findings
+Which teams and regions have seen the most success at the Jamboree?
+Broadly, it appears that as soon as European teams were able to compete in iGEM they have dominated the grand prize spot. Between the 13 year period of 2007-2020 a 
+team from the Europe region has won the grand prize 11 times. During this period teams from the Asia region won twice, and a North American team won once.
+
+
+This seems to match the sentiment among some iGEMers that North American teams, particularly from the US, tend to not do as well as their European counterparts, 
+despite the seeming advantage given to them by the fact that iGEM is exclusively conducted in the English language. That said, it is still possible that this confers 
+some advantage on native English-speaking teams since 4 of those 11 European wins were from universities based in the United Kingdom, giving the UK a plurality of wins 
+during that period.
+
+
+This plot shows the ranking of each team in each competition cycle in the period from 2007-2020, as a fraction of the maximum score earned that year, colored by region. 
+Hovering over each data point will show additional information about that team and their entry for that year. You can view regional performance individually by clicking 
+on the corresponding regions in the legend on the right hand side of the plot.
